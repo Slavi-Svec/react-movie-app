@@ -2,3 +2,8 @@ body {
 	background: black;
 	color:  white;
 }
+
+.movie > .row {
+	overflow-x: auto;
+	flex-wrap: nowrap;
+}
