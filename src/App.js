@@ -6,24 +6,30 @@ import MovieListHeading from './components/MovieListHeadings'
 import SearchInput from './components/SearchInput'
 import AddFavourites from './components/AddFavourites'
 import RemoveFavourites from './components/RemoveFavourites'
+import PlaceHolderUrl from './components/PlaceHolderUrl'
 
 const App = () => {
-
-	const [movies, setMovies] = useState([])
+	const [movies, setMovies] = useState(PlaceHolderUrl)
 	const [favourites, setFavourites] = useState([])
 	const [searchValue, setSearchValue] = useState('')
 
 	const getMovieRequest = async (searchValue) => {
         const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=263d22d8`
-		const response = await fetch(url)
+        const response = await fetch(url)
         const responseJson = await response.json()
 
-		if (responseJson.Search) {
-			setMovies(responseJson.Search)
+
+
+			if  (responseJson.Search) {
+            setMovies(responseJson.Search)
+            console.log(responseJson.Search)
+
 		}
 	}
 
-    useEffect(() => getMovieRequest(searchValue) [searchValue])
+    useEffect(() => {
+        getMovieRequest(searchValue)
+    }, [searchValue])
 
 	useEffect(() => {
 		const movieFavourites = JSON.parse(

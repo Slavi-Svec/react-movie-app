@@ -1,17 +1,16 @@
-import React from 'react';
+import React from 'react'
 
 const SearchInput = (props) => {
-    return (
-        <section className='col col-sm-4'>
-            <input
-                onChange={(event) => props.setSearchValue(event.target.value)}
-                className='form'
-                value={props.value}
-                placeholder='Search Movies Here...'
-            >
-            </input>
-        </section>
-    )
+	return (
+		<div className='col col-sm-4'>
+			<input
+				className='form-control'
+				value={props.value}
+				onChange={(event) => props.setSearchValue(event.target.value)}
+				placeholder='Type to search movies...'
+			></input>
+		</div>
+	)
 }
 
 export default SearchInput
