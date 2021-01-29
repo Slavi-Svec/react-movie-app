@@ -20,8 +20,6 @@ const App = () => {
 
 			if  (responseJson.Search) {
             setMovies(responseJson.Search)
-            console.log(responseJson.Search)
-
 		}
 	}
 
